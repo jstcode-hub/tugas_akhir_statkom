@@ -99,6 +99,8 @@ def compare_results(dataset1, dataset2, kolom):
     }
 
 
+
+
 def classify_class(nilai):
     """
     Mengklasifikasikan nilai ke dalam kategori kelas.
