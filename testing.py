@@ -5,45 +5,6 @@ from training import global_prior_prob, global_conditional_prob
 from naive_bayes import prediksi_naive_bayes, compare_results, classify_class
 import numpy as np
 
-# # Tambahkan CSS untuk mempercantik tampilan
-# st.markdown("""
-#     <style>
-#         body {
-#             background-color: #f9f9f9;  /* Warna latar belakang halaman */
-#         }
-#         .sidebar .sidebar-content {
-#             background-color: #4CAF50;  /* Warna latar belakang sidebar */
-#             color: white;  /* Teks sidebar menjadi putih */
-#         }
-#         .stButton>button {
-#             background-color: #4CAF50;  /* Warna tombol */
-#             color: white;  /* Teks tombol menjadi putih */
-#             border: none;
-#             padding: 10px 24px;
-#             cursor: pointer;
-#             font-size: 16px;
-#         }
-#         .stButton>button:hover {
-#             background-color: #45a049;  /* Warna tombol saat hover */
-#         }
-#         .stTitle {
-#             color: white;  /* Warna judul halaman menjadi putih */
-#         }
-#         .stSubheader {
-#             color: white;  /* Warna subheader menjadi putih */
-#         }
-#         .stMarkdown, .stWrite {
-#             font-size: 18px;
-#             color: white;  /* Warna teks utama menjadi putih */
-#         }
-#         .stDataFrame {
-#             background-color: #ffffff;  /* Latar belakang untuk tabel */
-#             border-radius: 8px;
-#         }
-#     </style>
-# """, unsafe_allow_html=True)
-
-
 # **1. Muat Dataset**
 st.title("Data Testing dan Analisis Naive Bayes")
 st.subheader("1. Muat Dataset")
