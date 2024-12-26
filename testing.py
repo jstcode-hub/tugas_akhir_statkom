@@ -3,8 +3,7 @@ import streamlit as st
 import matplotlib.pyplot as plt
 from training import global_prior_prob, global_conditional_prob
 from naive_bayes import prediksi_naive_bayes, compare_results, classify_class
-import seaborn as sns
-from sklearn.metrics import confusion_matrix
+import numpy as np
 
 # # Tambahkan CSS untuk mempercantik tampilan
 # st.markdown("""
