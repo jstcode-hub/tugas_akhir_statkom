@@ -9,45 +9,6 @@ sheet = 'DATASET TRAINING UNTUK PROGRAM'
 # Muat data
 data = pd.read_excel(path, sheet_name=sheet)
 
-# # Tambahkan CSS untuk memperindah tampilan
-# st.markdown("""
-#     <style>
-#         body {
-#             font-family: 'Arial', sans-serif;
-#             background-color: #f4f4f9;
-#             color: #333;
-#         }
-#         .sidebar .sidebar-content {
-#             background-color: #2e3d49;
-#             color: white;
-#         }
-#         .stButton>button {
-#             background-color: #4CAF50;
-#             color: white;
-#             border: none;
-#             padding: 10px 24px;
-#             cursor: pointer;
-#             font-size: 16px;
-#         }
-#         .stButton>button:hover {
-#             background-color: #45a049;
-#         }
-#         .stTitle, .stSubheader {
-#             font-size: 24px;
-#             color: #2e3d49;
-#         }
-#         .stDataFrame {
-#             background-color: #fff;
-#             border-radius: 8px;
-#             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-#         }
-#         .stExpanderHeader {
-#             font-weight: bold;
-#             color: #4CAF50;
-#         }
-#     </style>
-# """, unsafe_allow_html=True)
-
 # Tampilkan data dengan kontainer
 st.title('Data Training')
 st.dataframe(data, use_container_width=True)
