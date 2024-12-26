@@ -5,10 +5,6 @@ from training import global_prior_prob, global_conditional_prob
 from naive_bayes import prediksi_naive_bayes, compare_results, classify_class
 import numpy as np
 
-# **1. Muat Dataset**
-st.title("Data Testing dan Analisis Naive Bayes")
-st.subheader("1. Muat Dataset")
-
 # Tentukan lokasi data
 path = './dataset.xlsx'
 sheet_testing = 'DATASET TESTING UNTUK PROGRAM'
@@ -17,6 +13,10 @@ sheet_manual = 'HASIL PERHITUNGAN MANUAL UNTUK '
 # Baca data
 data = pd.read_excel(path, sheet_name=sheet_testing)
 data_manual = pd.read_excel(path, sheet_name=sheet_manual)
+
+# **1. Muat Dataset**
+st.title("Data Testing dan Analisis Naive Bayes")
+st.subheader("1. Muat Dataset")
 
 # Tampilkan data awal dalam container
 st.write("Data Testing:")
