@@ -146,8 +146,6 @@ ax.set_ylabel("Jumlah", fontsize=12)
 ax.tick_params(axis='x', rotation=45)
 st.pyplot(fig)
 
-import seaborn as sns
-
 # **5. Evaluasi Perbandingan dengan Data Manual**
 st.subheader("5. Perbandingan Hasil Prediksi dengan Confusion Matrix")
 
@@ -163,16 +161,34 @@ if isinstance(result, dict):
     # Dapatkan semua label unik yang ada dalam y_true dan y_pred
     labels = sorted(set(y_true).union(set(y_pred)))
 
-    # Hitung confusion matrix
-    cm = confusion_matrix(y_true, y_pred, labels=labels)
+    # Hitung confusion matrix secara manual
+    cm = [[0 for _ in range(len(labels))] for _ in range(len(labels))]
+    label_to_index = {label: idx for idx, label in enumerate(labels)}
 
-    # Tampilkan confusion matrix sebagai heatmap
+    for true_label, pred_label in zip(y_true, y_pred):
+        true_idx = label_to_index[true_label]
+        pred_idx = label_to_index[pred_label]
+        cm[true_idx][pred_idx] += 1
+
+    # Visualisasi Confusion Matrix secara manual
+    cm = np.array(cm)  # Ubah ke numpy array untuk mempermudah pengolahan
     fig, ax = plt.subplots(figsize=(8, 6))
-    sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', xticklabels=labels, yticklabels=labels, cbar=False)
-    
-    ax.set_title('Confusion Matrix - Hasil Prediksi vs Data Manual')
+    ax.imshow(cm, cmap='Blues')  # Ganti ini jika ingin warna lain
+
+    # Tambahkan anotasi nilai pada setiap sel
+    for i in range(len(labels)):
+        for j in range(len(labels)):
+            ax.text(j, i, cm[i, j], ha='center', va='center', color='black')
+
+    # Atur label sumbu X dan Y
+    ax.set_xticks(range(len(labels)))
+    ax.set_yticks(range(len(labels)))
+    ax.set_xticklabels(labels)
+    ax.set_yticklabels(labels)
+
     ax.set_xlabel('Prediksi')
     ax.set_ylabel('Data Manual')
+    ax.set_title('Confusion Matrix - Hasil Prediksi vs Data Manual')
 
     st.write("""
     **Penjelasan tentang Confusion Matrix:**
